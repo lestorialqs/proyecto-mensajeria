@@ -2,5 +2,5 @@ projectKey=Henry_Quispe_t1
 serverUrl=https://sonarqube.ingsoftware.lat
 serverVersion=26.5.0.122743
 dashboardUrl=https://sonarqube.ingsoftware.lat/dashboard?id=Henry_Quispe_t1
-ceTaskId=6068e92d-ef70-4127-96a4-b0e5fc089220
-ceTaskUrl=https://sonarqube.ingsoftware.lat/api/ce/task?id=6068e92d-ef70-4127-96a4-b0e5fc089220
+ceTaskId=564e5d71-b51b-47f3-b0bc-e1d4775e254e
+ceTaskUrl=https://sonarqube.ingsoftware.lat/api/ce/task?id=564e5d71-b51b-47f3-b0bc-e1d4775e254e
