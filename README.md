@@ -61,6 +61,3 @@ El proyecto está configurado para análisis de calidad con SonarCloud:
 ## 👥 Equipo
 - UTEC - CS3081 Ingeniería de Software
 - Laboratorio 8 - Cohesión y Acoplamiento
-
-## 📄 Documentación
-Ver [docs/architecture.md](docs/architecture.md) para la documentación completa de la arquitectura.
