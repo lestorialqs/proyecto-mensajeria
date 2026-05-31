@@ -12,4 +12,15 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    environment: 'happy-dom',
+    setupFiles: ['./src/setupTests.js'],
+    globals: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['lcov', 'text'],
+      include: ['src/**/*.js', 'src/**/*.jsx'],
+      exclude: ['src/main.jsx', 'src/api/client.js', 'src/hooks/useApi.js', 'src/**/*.css'],
+    },
+  },
 });
