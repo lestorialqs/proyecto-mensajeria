@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import './StatCard.css';
 
 const StatCard = ({ title, value, icon, gradient = '', delay = 0 }) => {
-  const gradientSuffix = gradient === 'warm'
-    ? '-warm'
-    : gradient === 'cool'
-      ? '-cool'
-      : gradient === 'sunset'
-        ? '-sunset'
-        : '';
+  let gradientSuffix = '';
+  if (gradient === 'warm') {
+    gradientSuffix = '-warm';
+  } else if (gradient === 'cool') {
+    gradientSuffix = '-cool';
+  } else if (gradient === 'sunset') {
+    gradientSuffix = '-sunset';
+  }
 
   return (
     <div

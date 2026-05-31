@@ -15,12 +15,10 @@ const Sidebar = ({ isOpen = false, onClose = () => {} }) => {
   return (
     <>
       {isOpen && (
-        <div
+        <button
+          type="button"
           className="sidebar-overlay"
-          role="button"
-          tabIndex={0}
           onClick={onClose}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { onClose(); } }}
           aria-label="Cerrar menú"
         />
       )}
