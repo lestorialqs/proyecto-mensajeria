@@ -1,0 +1,148 @@
+/* ============================================================
+   REWARD LIST STYLES
+   ============================================================ */
+
+.reward-list-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 100ms;
+}
+
+.reward-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.reward-list-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.reward-count-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ---------- Summary ---------- */
+.reward-summary {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.reward-summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reward-summary-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.reward-summary-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.reward-summary-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-subtle);
+}
+
+/* ---------- Table ---------- */
+.reward-table-wrap {
+  overflow-x: auto;
+}
+
+.reward-table {
+  width: 100%;
+  min-width: 620px;
+}
+
+.reward-table thead th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.reward-table tbody tr {
+  animation: fadeIn 0.35s ease both;
+  transition: background var(--transition-fast);
+}
+
+.reward-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.reward-table tbody tr:hover {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.reward-table td {
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Badges */
+.points-badge {
+  background: rgba(124, 58, 237, 0.12);
+  color: #c4b5fd;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cashback-badge {
+  background: rgba(16, 185, 129, 0.12);
+  color: #6ee7b7;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .reward-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .reward-summary-divider {
+    width: 100%;
+    height: 1px;
+  }
+}

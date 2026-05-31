@@ -1,0 +1,11 @@
+/* ============================================================
+   CUSTOMERS PAGE STYLES
+   ============================================================ */
+
+.customers-page {
+  animation: fadeIn 0.4s ease;
+}
+
+.customers-form-section {
+  margin-bottom: 28px;
+}

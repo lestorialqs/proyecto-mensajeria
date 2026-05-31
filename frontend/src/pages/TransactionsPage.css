@@ -1,0 +1,11 @@
+/* ============================================================
+   TRANSACTIONS PAGE STYLES
+   ============================================================ */
+
+.transactions-page {
+  animation: fadeIn 0.4s ease;
+}
+
+.transactions-form-section {
+  margin-bottom: 28px;
+}

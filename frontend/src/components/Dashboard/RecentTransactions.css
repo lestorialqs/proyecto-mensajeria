@@ -1,0 +1,102 @@
+/* ============================================================
+   RECENT TRANSACTIONS STYLES
+   ============================================================ */
+
+.recent-transactions {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 300ms;
+}
+
+.recent-transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.recent-transactions-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.recent-transactions-count {
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.recent-transactions-table-wrap {
+  overflow-x: auto;
+}
+
+.recent-transactions-table {
+  width: 100%;
+  min-width: 560px;
+}
+
+.recent-transactions-table thead th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.recent-transactions-table tbody tr {
+  animation: fadeIn 0.4s ease both;
+  transition: background var(--transition-fast);
+}
+
+.recent-transactions-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.recent-transactions-table tbody tr:hover {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.recent-transactions-table td {
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.td-date {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.td-customer {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.td-amount {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.restaurant-badge {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--text-accent);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+}

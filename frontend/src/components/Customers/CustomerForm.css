@@ -1,0 +1,27 @@
+/* ============================================================
+   CUSTOMER FORM STYLES
+   ============================================================ */
+
+.customer-form-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.customer-form-card .form-card-header {
+  margin-bottom: 24px;
+}
+
+.customer-form-card .form-card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.customer-form-card .form-card-header p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

@@ -1,0 +1,175 @@
+/* ============================================================
+   CUSTOMER LIST STYLES
+   ============================================================ */
+
+.customer-list-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 150ms;
+}
+
+.customer-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.customer-list-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.customer-count-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+}
+
+.customer-table-wrap {
+  overflow-x: auto;
+}
+
+.customer-table {
+  width: 100%;
+  min-width: 720px;
+}
+
+.customer-table thead th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.customer-table tbody tr {
+  animation: fadeIn 0.35s ease both;
+  transition: background var(--transition-fast);
+}
+
+.customer-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.customer-row:hover {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.customer-row--selected {
+  background: rgba(124, 58, 237, 0.1) !important;
+}
+
+.customer-table td {
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Avatar */
+.customer-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.td-customer {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.td-email {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.td-phone {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.card-number-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Detail Row ---------- */
+.customer-detail-row td {
+  padding: 0 !important;
+  background: rgba(124, 58, 237, 0.04);
+}
+
+.customer-detail {
+  animation: fadeIn 0.3s ease;
+}
+
+.customer-detail-content {
+  padding: 20px 24px;
+}
+
+.detail-section h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.detail-grid div {
+  color: var(--text-secondary);
+}
+
+.detail-grid strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
