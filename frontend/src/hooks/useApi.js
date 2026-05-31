@@ -45,7 +45,7 @@ export function useToast() {
   const [toasts, setToasts] = useState([]);
 
   const addToast = useCallback((message, type = 'success', duration = 3500) => {
-    const id = Date.now() + Math.random();
+    const id = Date.now() + '-' + crypto.randomUUID();
     setToasts((prev) => [...prev, { id, message, type }]);
     scheduleToastRemoval(setToasts, id, duration);
   }, []);
