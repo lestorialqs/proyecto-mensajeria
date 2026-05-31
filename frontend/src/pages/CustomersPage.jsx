@@ -4,27 +4,12 @@ import CustomerForm from '../components/Customers/CustomerForm';
 import CustomerList from '../components/Customers/CustomerList';
 import './CustomersPage.css';
 
-function removeToastById(id) {
-  return (prev) => prev.filter((t) => t.id !== id);
-}
-
-function exitToastById(id) {
-  return (prev) => prev.map((t) => (t.id === id ? { ...t, exiting: true } : t));
-}
+import { useToast } from '../hooks/useApi';
 
 export default function CustomersPage() {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [toasts, setToasts] = useState([]);
-
-  const addToast = useCallback((message, type = 'success') => {
-    const id = Date.now() + Math.random();
-    setToasts((prev) => [...prev, { id, message, type }]);
-    setTimeout(() => {
-      setToasts(exitToastById(id));
-      setTimeout(() => setToasts(removeToastById(id)), 300);
-    }, 3500);
-  }, []);
+  const { toasts, addToast } = useToast();
 
   const loadCustomers = useCallback(async () => {
     try {

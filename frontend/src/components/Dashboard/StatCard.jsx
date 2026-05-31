@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './StatCard.css';
 
-export default function StatCard({ title, value, icon, gradient, delay }) {
+const StatCard = ({ title, value, icon, gradient = '', delay = 0 }) => {
   const gradientSuffix = gradient === 'warm'
     ? '-warm'
     : gradient === 'cool'
@@ -26,11 +26,6 @@ export default function StatCard({ title, value, icon, gradient, delay }) {
       <div className="stat-card-shine" />
     </div>
   );
-}
-
-StatCard.defaultProps = {
-  delay: 0,
-  gradient: '',
 };
 
 StatCard.propTypes = {
@@ -40,3 +35,5 @@ StatCard.propTypes = {
   gradient: PropTypes.string,
   delay: PropTypes.number,
 };
+
+export default StatCard;

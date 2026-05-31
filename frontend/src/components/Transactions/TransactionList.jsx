@@ -24,7 +24,7 @@ function getStatusBadgeClass(status) {
   return 'badge-success';
 }
 
-export default function TransactionList({ transactions, loading }) {
+const TransactionList = ({ transactions = [], loading = false }) => {
   if (loading) {
     return (
       <div className="transaction-list-card">
@@ -86,14 +86,10 @@ export default function TransactionList({ transactions, loading }) {
       )}
     </div>
   );
-}
-
-TransactionList.defaultProps = {
-  transactions: [],
-  loading: false,
 };
 
 TransactionList.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool,
 };
+export default TransactionList;

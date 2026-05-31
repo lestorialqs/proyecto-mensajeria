@@ -9,7 +9,7 @@ const navItems = [
   { path: '/customers', label: 'Clientes', icon: '👥' },
 ];
 
-export default function Sidebar({ isOpen, onClose }) {
+const Sidebar = ({ isOpen = false, onClose = () => {} }) => {
   const location = useLocation();
 
   return (
@@ -84,3 +84,4 @@ Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
+export default Sidebar;

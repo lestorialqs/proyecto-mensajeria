@@ -1,10 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 
+const markToastExiting = (id) => (prev) => prev.map((t) => (t.id === id ? { ...t, exiting: true } : t));
+const removeToast = (id) => (prev) => prev.filter((t) => t.id !== id);
+
 function scheduleToastRemoval(setToasts, id, duration) {
   setTimeout(() => {
-    setToasts((prev) => prev.map((t) => (t.id === id ? { ...t, exiting: true } : t)));
+    setToasts(markToastExiting(id));
     setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== id));
+      setToasts(removeToast(id));
     }, 300);
   }, duration);
 }

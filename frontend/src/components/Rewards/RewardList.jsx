@@ -21,7 +21,7 @@ function formatCurrency(amount) {
   return `$${Number(amount).toFixed(2)}`;
 }
 
-export default function RewardList({ rewards, loading }) {
+const RewardList = ({ rewards = [], loading = false }) => {
   if (loading) {
     return (
       <div className="reward-list-card">
@@ -99,14 +99,10 @@ export default function RewardList({ rewards, loading }) {
       )}
     </div>
   );
-}
-
-RewardList.defaultProps = {
-  rewards: [],
-  loading: false,
 };
 
 RewardList.propTypes = {
   rewards: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool,
 };
+export default RewardList;

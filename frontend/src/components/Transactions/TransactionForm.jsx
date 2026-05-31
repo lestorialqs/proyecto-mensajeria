@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import api from '../../api/client';
 import './TransactionForm.css';
 
-export default function TransactionForm({ onSuccess }) {
+const TransactionForm = ({ onSuccess = () => {} }) => {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -115,7 +115,7 @@ export default function TransactionForm({ onSuccess }) {
           {loading ? (
             <span className="btn-loading">
               <span className="spinner spinner-sm" />
-              {' '}Procesando...
+              <span>Procesando...</span>
             </span>
           ) : (
             <span>🚀 Registrar Transacción</span>
@@ -124,12 +124,10 @@ export default function TransactionForm({ onSuccess }) {
       </form>
     </div>
   );
-}
-
-TransactionForm.defaultProps = {
-  onSuccess: null,
 };
 
 TransactionForm.propTypes = {
   onSuccess: PropTypes.func,
 };
+
+export default TransactionForm;

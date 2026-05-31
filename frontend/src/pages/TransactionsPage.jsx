@@ -4,27 +4,12 @@ import TransactionForm from '../components/Transactions/TransactionForm';
 import TransactionList from '../components/Transactions/TransactionList';
 import './TransactionsPage.css';
 
-function removeToastById(id) {
-  return (prev) => prev.filter((t) => t.id !== id);
-}
-
-function exitToastById(id) {
-  return (prev) => prev.map((t) => (t.id === id ? { ...t, exiting: true } : t));
-}
+import { useToast } from '../hooks/useApi';
 
 export default function TransactionsPage() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [toasts, setToasts] = useState([]);
-
-  const addToast = useCallback((message, type = 'success') => {
-    const id = Date.now() + Math.random();
-    setToasts((prev) => [...prev, { id, message, type }]);
-    setTimeout(() => {
-      setToasts(exitToastById(id));
-      setTimeout(() => setToasts(removeToastById(id)), 300);
-    }, 3500);
-  }, []);
+  const { toasts, addToast } = useToast();
 
   const loadTransactions = useCallback(async () => {
     try {
