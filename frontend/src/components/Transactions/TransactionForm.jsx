@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import api from '../../api/client';
 import './TransactionForm.css';
@@ -31,7 +32,7 @@ export default function TransactionForm({ onSuccess }) {
       await api.createTransaction({
         customerId: form.customerId,
         restaurantCode: form.restaurantCode,
-        amount: parseFloat(form.amount),
+        amount: Number.parseFloat(form.amount),
         description: form.description,
       });
       setForm({ customerId: '', restaurantCode: '', amount: '', description: '' });
@@ -114,15 +115,21 @@ export default function TransactionForm({ onSuccess }) {
           {loading ? (
             <span className="btn-loading">
               <span className="spinner spinner-sm" />
-              Procesando...
+              {' '}Procesando...
             </span>
           ) : (
-            <>
-              <span>🚀</span> Registrar Transacción
-            </>
+            <span>🚀 Registrar Transacción</span>
           )}
         </button>
       </form>
     </div>
   );
 }
+
+TransactionForm.defaultProps = {
+  onSuccess: null,
+};
+
+TransactionForm.propTypes = {
+  onSuccess: PropTypes.func,
+};

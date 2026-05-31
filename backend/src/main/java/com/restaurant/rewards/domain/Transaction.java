@@ -11,7 +11,9 @@ public class Transaction {
     private String description;
     private LocalDateTime timestamp;
 
-    public Transaction() {}
+    public Transaction() {
+        // Constructor sin argumentos requerido por JPA y el serializador JSON
+    }
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }

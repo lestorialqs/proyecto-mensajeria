@@ -16,7 +16,9 @@ public class CustomerEntity {
     private Integer totalPoints = 0;
     private Double totalCashback = 0.0;
 
-    public CustomerEntity() {}
+    public CustomerEntity() {
+        // Constructor sin argumentos requerido por JPA
+    }
 
     public Integer getTotalPoints() { return totalPoints == null ? 0 : totalPoints; }
     public void setTotalPoints(Integer totalPoints) { this.totalPoints = totalPoints; }

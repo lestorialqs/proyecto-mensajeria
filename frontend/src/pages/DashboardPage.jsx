@@ -60,7 +60,7 @@ export default function DashboardPage() {
         </div>
         <div className="page-header-badge">
           <span className="live-dot" />
-          En vivo
+          {' '}En vivo
         </div>
       </div>
 

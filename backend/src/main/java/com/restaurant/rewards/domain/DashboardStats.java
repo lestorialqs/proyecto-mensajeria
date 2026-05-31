@@ -11,7 +11,9 @@ public class DashboardStats {
     private BigDecimal totalCashback;
     private List<Transaction> recentTransactions;
 
-    public DashboardStats() {}
+    public DashboardStats() {
+        // Constructor sin argumentos requerido por el serializador JSON (Jackson)
+    }
 
     public long getTotalCustomers() { return totalCustomers; }
     public void setTotalCustomers(long totalCustomers) { this.totalCustomers = totalCustomers; }

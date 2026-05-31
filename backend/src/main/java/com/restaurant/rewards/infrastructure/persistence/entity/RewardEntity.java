@@ -17,7 +17,9 @@ public class RewardEntity {
     private BigDecimal cashbackEarned;
     private LocalDateTime timestamp;
 
-    public RewardEntity() {}
+    public RewardEntity() {
+        // Constructor sin argumentos requerido por JPA
+    }
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }

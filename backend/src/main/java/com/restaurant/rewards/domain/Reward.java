@@ -11,7 +11,9 @@ public class Reward {
     private BigDecimal cashbackEarned;
     private LocalDateTime timestamp;
 
-    public Reward() {}
+    public Reward() {
+        // Constructor sin argumentos requerido por el serializador JSON (Jackson)
+    }
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }

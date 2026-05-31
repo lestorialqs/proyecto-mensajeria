@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
@@ -13,7 +14,16 @@ export default function Sidebar({ isOpen, onClose }) {
 
   return (
     <>
-      {isOpen && <div className="sidebar-overlay" onClick={onClose} />}
+      {isOpen && (
+        <div
+          className="sidebar-overlay"
+          role="button"
+          tabIndex={0}
+          onClick={onClose}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { onClose(); } }}
+          aria-label="Cerrar menú"
+        />
+      )}
       <aside className={`sidebar ${isOpen ? 'sidebar--open' : ''}`}>
         {/* Brand */}
         <div className="sidebar-brand">
@@ -32,25 +42,28 @@ export default function Sidebar({ isOpen, onClose }) {
         {/* Navigation */}
         <nav className="sidebar-nav">
           <ul>
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `sidebar-link ${isActive ? 'sidebar-link--active' : ''}`
-                  }
-                  end={item.path === '/'}
-                  onClick={onClose}
-                >
-                  <span className="sidebar-link-icon">{item.icon}</span>
-                  <span className="sidebar-link-label">{item.label}</span>
-                  {location.pathname === item.path ||
-                  (item.path !== '/' && location.pathname.startsWith(item.path)) ? (
-                    <span className="sidebar-link-indicator" />
-                  ) : null}
-                </NavLink>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isCurrentPath = location.pathname === item.path
+                || (item.path !== '/' && location.pathname.startsWith(item.path));
+              return (
+                <li key={item.path}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `sidebar-link ${isActive ? 'sidebar-link--active' : ''}`
+                    }
+                    end={item.path === '/'}
+                    onClick={onClose}
+                  >
+                    <span className="sidebar-link-icon">{item.icon}</span>
+                    <span className="sidebar-link-label">{item.label}</span>
+                    {isCurrentPath ? (
+                      <span className="sidebar-link-indicator" />
+                    ) : null}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -66,3 +79,8 @@ export default function Sidebar({ isOpen, onClose }) {
     </>
   );
 }
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+};

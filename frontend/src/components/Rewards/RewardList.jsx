@@ -1,10 +1,13 @@
+import PropTypes from 'prop-types';
 import './RewardList.css';
 
 function formatDate(dateStr) {
   if (!dateStr) return '—';
-  let d = new Date(dateStr);
+  let d;
   if (Array.isArray(dateStr)) {
     d = new Date(dateStr[0], dateStr[1] - 1, dateStr[2], dateStr[3] || 0, dateStr[4] || 0, dateStr[5] || 0);
+  } else {
+    d = new Date(dateStr);
   }
   return d.toLocaleDateString('es-ES', {
     day: '2-digit',
@@ -18,7 +21,7 @@ function formatCurrency(amount) {
   return `$${Number(amount).toFixed(2)}`;
 }
 
-export default function RewardList({ rewards = [], loading = false }) {
+export default function RewardList({ rewards, loading }) {
   if (loading) {
     return (
       <div className="reward-list-card">
@@ -97,3 +100,13 @@ export default function RewardList({ rewards = [], loading = false }) {
     </div>
   );
 }
+
+RewardList.defaultProps = {
+  rewards: [],
+  loading: false,
+};
+
+RewardList.propTypes = {
+  rewards: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
+};

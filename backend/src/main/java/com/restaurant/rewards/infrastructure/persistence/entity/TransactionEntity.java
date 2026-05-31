@@ -17,7 +17,9 @@ public class TransactionEntity {
     private String description;
     private LocalDateTime timestamp;
 
-    public TransactionEntity() {}
+    public TransactionEntity() {
+        // Constructor sin argumentos requerido por JPA
+    }
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }

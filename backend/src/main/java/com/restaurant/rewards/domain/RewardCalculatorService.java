@@ -10,7 +10,7 @@ public class RewardCalculatorService {
     public Reward calculateReward(Transaction transaction) {
         BigDecimal amount = transaction.getAmount();
         int points = 0;
-        BigDecimal cashback = BigDecimal.ZERO;
+        BigDecimal cashback;
 
         if (amount == null) {
             amount = BigDecimal.ZERO;

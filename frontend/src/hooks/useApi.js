@@ -1,5 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 
+function scheduleToastRemoval(setToasts, id, duration) {
+  setTimeout(() => {
+    setToasts((prev) => prev.map((t) => (t.id === id ? { ...t, exiting: true } : t)));
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+    }, 300);
+  }, duration);
+}
+
 export function useApi(apiFunction, immediate = true) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(immediate);
@@ -35,15 +44,7 @@ export function useToast() {
   const addToast = useCallback((message, type = 'success', duration = 3500) => {
     const id = Date.now() + Math.random();
     setToasts((prev) => [...prev, { id, message, type }]);
-
-    setTimeout(() => {
-      setToasts((prev) =>
-        prev.map((t) => (t.id === id ? { ...t, exiting: true } : t))
-      );
-      setTimeout(() => {
-        setToasts((prev) => prev.filter((t) => t.id !== id));
-      }, 300);
-    }, duration);
+    scheduleToastRemoval(setToasts, id, duration);
   }, []);
 
   return { toasts, addToast };

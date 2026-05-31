@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './TransactionList.css';
 
 function formatDate(dateStr) {
@@ -17,7 +18,13 @@ function formatCurrency(amount) {
   return `$${Number(amount).toFixed(2)}`;
 }
 
-export default function TransactionList({ transactions = [], loading = false }) {
+function getStatusBadgeClass(status) {
+  if (status === 'error') return 'badge-error';
+  if (status === 'pending') return 'badge-pending';
+  return 'badge-success';
+}
+
+export default function TransactionList({ transactions, loading }) {
   if (loading) {
     return (
       <div className="transaction-list-card">
@@ -67,7 +74,7 @@ export default function TransactionList({ transactions = [], loading = false }) 
                   <td className="td-amount">{formatCurrency(tx.amount)}</td>
                   <td className="td-desc">{tx.description || '—'}</td>
                   <td>
-                    <span className={`badge badge-${tx.status === 'error' ? 'error' : tx.status === 'pending' ? 'pending' : 'success'}`}>
+                    <span className={`badge ${getStatusBadgeClass(tx.status)}`}>
                       {tx.status || 'completada'}
                     </span>
                   </td>
@@ -80,3 +87,13 @@ export default function TransactionList({ transactions = [], loading = false }) 
     </div>
   );
 }
+
+TransactionList.defaultProps = {
+  transactions: [],
+  loading: false,
+};
+
+TransactionList.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
+};
