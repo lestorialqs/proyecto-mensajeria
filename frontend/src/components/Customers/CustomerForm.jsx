@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import api from '../../api/client';
 import './CustomerForm.css';
 
@@ -99,15 +100,17 @@ export default function CustomerForm({ onSuccess }) {
           {loading ? (
             <span className="btn-loading">
               <span className="spinner spinner-sm" />
-              Registrando...
+              <span>Registrando...</span>
             </span>
           ) : (
-            <>
-              <span>✨</span> Registrar Cliente
-            </>
+            <span>Registrar Cliente</span>
           )}
         </button>
       </form>
     </div>
   );
 }
+
+CustomerForm.propTypes = {
+  onSuccess: PropTypes.func,
+};

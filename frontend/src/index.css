@@ -271,21 +271,21 @@ img {
 }
 
 .toast-success {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: rgba(16, 185, 129, 0.3);
-  color: #d1fae5;
+  background: #064e3b;
+  border-color: #10b981;
+  color: #ecfdf5;
 }
 
 .toast-error {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #fee2e2;
+  background: #7f1d1d;
+  border-color: #ef4444;
+  color: #fef2f2;
 }
 
 .toast-info {
-  background: rgba(6, 182, 212, 0.15);
-  border-color: rgba(6, 182, 212, 0.3);
-  color: #cffafe;
+  background: #155e75;
+  border-color: #06b6d4;
+  color: #ecfeff;
 }
 
 /* ---------- Badge ---------- */
@@ -301,8 +301,8 @@ img {
 }
 
 .badge-success {
-  background: rgba(16, 185, 129, 0.12);
-  color: #d1fae5;
+  background: #064e3b;
+  color: #ecfdf5;
 }
 
 .badge-success::before {
@@ -314,8 +314,8 @@ img {
 }
 
 .badge-pending {
-  background: rgba(245, 158, 11, 0.12);
-  color: #fef3c7;
+  background: #78350f;
+  color: #fffbeb;
 }
 
 .badge-pending::before {
@@ -327,8 +327,8 @@ img {
 }
 
 .badge-error {
-  background: rgba(239, 68, 68, 0.12);
-  color: #fee2e2;
+  background: #7f1d1d;
+  color: #fef2f2;
 }
 
 .badge-error::before {

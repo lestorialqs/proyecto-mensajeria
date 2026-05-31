@@ -39,4 +39,19 @@ describe('CustomerForm', () => {
     });
     expect(onSuccess).toHaveBeenCalledWith();
   });
+  it('handles API error on submit', async () => {
+    api.createCustomer.mockRejectedValueOnce(new Error('Network error'));
+    const onSuccess = vi.fn();
+    
+    render(<CustomerForm onSuccess={onSuccess} />);
+    
+    fireEvent.change(screen.getByLabelText('Nombre Completo'), { target: { value: 'Test User' } });
+    fireEvent.change(screen.getByLabelText('Correo Electrónico'), { target: { value: 'test@test.com' } });
+    
+    fireEvent.submit(screen.getByRole('button', { name: /Registrar Cliente/i }));
+    
+    await new Promise((r) => setTimeout(r, 0));
+    
+    expect(onSuccess).toHaveBeenCalledWith('Network error');
+  });
 });

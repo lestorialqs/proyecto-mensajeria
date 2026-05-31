@@ -37,10 +37,10 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: #064e3b;
+  border: 1px solid #10b981;
   border-radius: 9999px;
-  color: #d1fae5;
+  color: #ecfdf5;
   font-size: 0.78rem;
   font-weight: 600;
 }

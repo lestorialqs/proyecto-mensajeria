@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import './RecentTransactions.css';
 
 function formatDate(dateStr) {
-  if (!dateStr) return '—';
+  if (!dateStr) return '-';
   const d = new Date(dateStr);
   return d.toLocaleDateString('es-ES', {
     day: '2-digit',
@@ -11,8 +12,14 @@ function formatDate(dateStr) {
 }
 
 function formatCurrency(amount) {
-  if (amount == null) return '—';
+  if (amount == null) return '-';
   return `$${Number(amount).toFixed(2)}`;
+}
+
+function getStatusClass(status) {
+  if (status === 'error') return 'error';
+  if (status === 'pending') return 'pending';
+  return 'success';
 }
 
 export default function RecentTransactions({ transactions = [] }) {
@@ -20,10 +27,10 @@ export default function RecentTransactions({ transactions = [] }) {
     return (
       <div className="recent-transactions">
         <div className="recent-transactions-header">
-          <h3>🕐 Transacciones Recientes</h3>
+          <h3>Transacciones Recientes</h3>
         </div>
         <div className="empty-state">
-          <div className="empty-state-icon">💳</div>
+          <div className="empty-state-icon">Tarjetas</div>
           <p className="empty-state-text">No hay transacciones recientes</p>
         </div>
       </div>
@@ -33,7 +40,7 @@ export default function RecentTransactions({ transactions = [] }) {
   return (
     <div className="recent-transactions">
       <div className="recent-transactions-header">
-        <h3>🕐 Transacciones Recientes</h3>
+        <h3>Transacciones Recientes</h3>
         <span className="recent-transactions-count">{transactions.length}</span>
       </div>
       <div className="recent-transactions-table-wrap">
@@ -55,11 +62,11 @@ export default function RecentTransactions({ transactions = [] }) {
                   {tx.customer?.name || tx.customerName || `Cliente #${tx.customerId}`}
                 </td>
                 <td className="td-restaurant">
-                  <span className="restaurant-badge">{tx.restaurantCode || tx.restaurant || '—'}</span>
+                  <span className="restaurant-badge">{tx.restaurantCode || tx.restaurant || '-'}</span>
                 </td>
                 <td className="td-amount">{formatCurrency(tx.amount)}</td>
                 <td>
-                  <span className={`badge badge-${tx.status === 'error' ? 'error' : tx.status === 'pending' ? 'pending' : 'success'}`}>
+                  <span className={`badge badge-${getStatusClass(tx.status)}`}>
                     {tx.status || 'completada'}
                   </span>
                 </td>
@@ -71,3 +78,7 @@ export default function RecentTransactions({ transactions = [] }) {
     </div>
   );
 }
+
+RecentTransactions.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object),
+};

@@ -41,4 +41,30 @@ describe('TransactionForm', () => {
     });
     expect(onSuccess).toHaveBeenCalledWith();
   });
+  it('handles API error on submit', async () => {
+    api.createTransaction.mockRejectedValueOnce(new Error('Network error'));
+    const onSuccess = vi.fn();
+    
+    render(<TransactionForm onSuccess={onSuccess} />);
+    
+    await new Promise((r) => setTimeout(r, 0)); // wait for customers to load
+
+    fireEvent.change(screen.getByLabelText('Cliente'), { target: { value: '1' } });
+    fireEvent.change(screen.getByLabelText('Código Restaurante'), { target: { value: 'R1' } });
+    fireEvent.change(screen.getByLabelText('Monto ($)'), { target: { value: '50.50' } });
+    
+    fireEvent.submit(screen.getByRole('button', { name: /Registrar Transacción/i }));
+    
+    await new Promise((r) => setTimeout(r, 0));
+    
+    expect(onSuccess).toHaveBeenCalledWith('Network error');
+  });
+
+  it('handles customer load error', async () => {
+    api.getCustomers.mockRejectedValueOnce(new Error('Error'));
+    render(<TransactionForm />);
+    await new Promise((r) => setTimeout(r, 0));
+    // Should gracefully fallback to empty array without crashing
+    expect(screen.getByText('💳 Nueva Transacción')).toBeInTheDocument();
+  });
 });

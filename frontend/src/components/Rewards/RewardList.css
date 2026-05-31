@@ -114,8 +114,8 @@
 
 /* Badges */
 .points-badge {
-  background: rgba(124, 58, 237, 0.12);
-  color: #c4b5fd;
+  background: #4c1d95;
+  color: #f5f3ff;
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: 0.82rem;
@@ -124,8 +124,8 @@
 }
 
 .cashback-badge {
-  background: rgba(16, 185, 129, 0.12);
-  color: #d1fae5;
+  background: #065f46;
+  color: #ecfdf5;
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: 0.82rem;
